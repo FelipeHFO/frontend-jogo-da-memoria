@@ -22,10 +22,11 @@
       "@components/*": [
         "src/components/*"
       ],
-      "@interfaces/*":[
+      "@interfaces/*": [
         "src/interfaces/*"
       ]
-    }
+    },
+    "incremental": true
   },
   "include": [
     "**/*.ts",
