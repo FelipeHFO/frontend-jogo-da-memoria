@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
@@ -35,12 +36,25 @@ const FormLogin = () => {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
+
       <button
         type="submit"
         className="w-3/4 h-10 text-lg font-bold text-white bg-green-600 hover:bg-green-400 transition-all duration-300 m-10 "
       >
         Entrar
       </button>
+
+      <Link href={'/forgot-password'} passHref>
+        <a href="" className="text-white underline mb-5">
+          Esqueceu sua senha?
+        </a>
+      </Link>
+
+      <Link href={'/register'} passHref>
+        <a href="" className="text-white underline mb-5">
+          Crie sua conta!
+        </a>
+      </Link>
     </form>
   );
 };
