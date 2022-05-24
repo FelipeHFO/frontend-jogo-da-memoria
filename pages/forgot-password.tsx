@@ -1,3 +1,14 @@
+import FormRecoverPassword from 'components/FormRecoverPassword/FormRecoverPassword';
+import Head from 'next/head';
+
 export default function ForgotPassword() {
-  return <h1>Esqueceu sua senha?</h1>;
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <Head>
+        <title>Projeto Auditor</title>
+        <meta name="description" content="Projeto Auditor" />
+      </Head>
+      <FormRecoverPassword />
+    </div>
+  );
 }

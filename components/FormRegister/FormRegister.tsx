@@ -63,7 +63,7 @@ const FormRegister = () => {
         type="submit"
         className="w-3/4 h-10 text-lg font-bold text-white bg-green-600 hover:bg-green-400 transition-all duration-300 m-5"
       >
-        Entrar
+        Cadastrar
       </button>
     </form>
   );

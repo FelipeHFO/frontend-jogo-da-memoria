@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Dispatch, SetStateAction } from 'react';
 
 type CustomInputProps = {
@@ -38,7 +39,12 @@ export default function CustomInput({
           className="w-1/5"
           onClick={() => setVisible(!visible)}
         >
-          X
+          <Image
+            src="/assets/icons/eye-slash-solid.svg"
+            alt="Ícone de um olho com uma barra cortando ele"
+            width={25}
+            height={25}
+          />
         </button>
       ) : (
         <button
@@ -46,7 +52,12 @@ export default function CustomInput({
           className="w-1/5"
           onClick={() => setVisible(!visible)}
         >
-          O
+          <Image
+            src="/assets/icons/eye-solid.svg"
+            alt="Ícone de um olho com uma barra cortando ele"
+            width={25}
+            height={25}
+          />
         </button>
       )}
     </div>
