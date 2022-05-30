@@ -1,20 +1,36 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import useRequest from '../../hooks/useRequest';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
+  const { sendGet } = useRequest();
 
-  function login(e) {
+  async function login(e) {
     e.preventDefault();
 
     if (email === '' || password === '') {
       return alert('Digite os campos necessário!');
     }
 
-    return router.push('dashboard');
+    const { data } = await sendGet('users');
+
+    if(data){
+      const userFound = data.find((user) => user.email === email && user.password === password);
+
+      if(userFound){
+        return router.push('dashboard');
+      }
+
+      return alert('Usuário ou senha incorreto!');
+
+    }
+    
+    return alert('Usuário não encontrado!')
+
   }
 
   return (
