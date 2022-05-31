@@ -16,9 +16,10 @@ const FormLogin = () => {
       return alert('Digite os campos necessário!');
     }
 
-    const { data } = await sendGet('users');
-
-    if(data){
+    const response = await sendGet('users');
+    const data = await response.json();
+    
+    if(data.length > 0){
       const userFound = data.find((user) => user.email === email && user.password === password);
 
       if(userFound){

@@ -31,7 +31,8 @@ const FormRegister = () => {
       return;
     }
 
-    const { data } = await sendPost('users', { username, email, password });
+    const response = await sendPost('users', { username:username, email:email, password:password });
+    const data = await response.json();
 
     if (data?.createdAt) {
       return router.push('dashboard');
