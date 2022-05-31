@@ -1,21 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+import useRequest from 'hooks/useRequest';
 import CustomInput from 'components/CustomInput/CustomInput';
 
 const FormRegister = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [alertPassword, setAlertPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [visibleConfirmPassword, setVisibleConfirmPassword] = useState(false);
+  const { sendPost } = useRequest();
   const router = useRouter();
 
-  function createAccount(e) {
+  async function createAccount(e) {
     e.preventDefault();
 
-    if (email === '' || password === '' || confirmPassword === '') {
+    if (
+      username === '' ||
+      email === '' ||
+      password === '' ||
+      confirmPassword === ''
+    ) {
       return alert('Digite os campos necessário!');
     }
 
@@ -24,7 +31,13 @@ const FormRegister = () => {
       return;
     }
 
-    return router.push('dashboard');
+    const { data } = await sendPost('users', { username, email, password });
+
+    if (data?.createdAt) {
+      return router.push('dashboard');
+    }
+
+    return alert('Ocorreu algum erro!');
   }
 
   return (
@@ -32,6 +45,14 @@ const FormRegister = () => {
       onSubmit={createAccount}
       className="flex flex-col justify-center items-center w-96 h-auto bg-gradient-to-t from-cyan-400 to-blue-700 rounded-2xl py-20"
     >
+      <input
+        type="text"
+        placeholder="Digite seu nome de usuário"
+        className="w-3/4 h-14 m-5 pl-2 outline-none"
+        onChange={(e) => setUsername(e.target.value)}
+        value={username}
+      />
+
       <input
         type="email"
         placeholder="Digite seu email"
