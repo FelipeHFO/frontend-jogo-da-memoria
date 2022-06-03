@@ -31,10 +31,14 @@ const FormRegister = () => {
       return;
     }
 
-    const response = await sendPost('users', { username:username, email:email, password:password });
+    const response = await sendPost('register', {
+      username: username,
+      email: email,
+      password: password,
+    });
     const data = await response.json();
 
-    if (data?.createdAt) {
+    if (data?.token) {
       return router.push('dashboard');
     }
 
