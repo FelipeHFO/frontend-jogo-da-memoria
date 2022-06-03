@@ -39,7 +39,7 @@ const FormRegister = () => {
     const data = await response.json();
 
     if (data?.token) {
-      return router.push('dashboard');
+      return router.push('games');
     }
 
     return alert('Ocorreu algum erro!');
@@ -48,12 +48,14 @@ const FormRegister = () => {
   return (
     <form
       onSubmit={createAccount}
-      className="flex flex-col justify-center items-center w-96 h-auto bg-gradient-to-t from-cyan-400 to-blue-700 rounded-2xl py-20"
+      className="flex flex-col justify-center items-center w-96 h-auto bg-gradient-to-t from-cyan-400 to-blue-700 rounded-2xl py-10"
     >
+      <h1 className="text-2xl text-white font-bold p-2">Cadastro</h1>
       <input
         type="text"
         placeholder="Digite seu nome de usuário"
-        className="w-3/4 h-14 m-5 pl-2 outline-none"
+        autoComplete="new-password"
+        className="w-3/4 h-10 bg-transparent text-white border-b m-5 pl-2 outline-none placeholder:text-white"
         onChange={(e) => setUsername(e.target.value)}
         value={username}
       />
@@ -61,7 +63,8 @@ const FormRegister = () => {
       <input
         type="email"
         placeholder="Digite seu email"
-        className="w-3/4 h-14 m-5 pl-2 outline-none"
+        autoComplete="new-password"
+        className="w-3/4 h-10 bg-transparent text-white border-b m-5 pl-2 outline-none placeholder:text-white"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
       />
@@ -87,7 +90,7 @@ const FormRegister = () => {
 
       <button
         type="submit"
-        className="w-3/4 h-10 text-lg font-bold text-white bg-green-600 hover:bg-green-400 transition-all duration-300 m-5"
+        className="w-3/4 h-10 text-lg font-bold text-white bg-blue-700 m-5 hover:bg-blue-900 transition-all duration-300"
       >
         Cadastrar
       </button>

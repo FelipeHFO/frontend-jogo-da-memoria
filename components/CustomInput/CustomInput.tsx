@@ -21,14 +21,15 @@ export default function CustomInput({
   setVisible,
 }: CustomInputProps) {
   return (
-    <div className="flex justify-between w-3/4 m-5 bg-white">
+    <div className="flex justify-between w-3/4 m-5">
       <input
         type={visible ? 'text' : type}
         placeholder={placeholder}
+        autoComplete="new-password"
         className={
           alertPassword
             ? 'w-4/5 h-10 m-5 pl-2 border-2 border-red-500 outline-none'
-            : 'w-4/5 h-10 my-2 pl-2 outline-none'
+            : 'w-4/5 h-10 bg-transparent text-white border-b pl-2 outline-none placeholder:text-white'
         }
         onChange={(e) => setValue(e.target.value)}
         value={value}
