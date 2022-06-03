@@ -1,13 +1,27 @@
 import useRequest from 'hooks/useRequest';
 import { createContext, useState } from 'react';
 
-export const AuthContext = createContext({});
+type SignInResponseType = {
+  message?: string;
+  token?: string;
+  erro?: string;
+};
+
+type AuthContextType = {
+  token: string;
+  signIn: (email: string, password: string) => Promise<SignInResponseType>;
+};
+
+export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState();
   const { sendPost } = useRequest();
 
-  async function signIn(email: string, password: string): Promise<string> {
+  async function signIn(
+    email: string,
+    password: string,
+  ): Promise<SignInResponseType> {
     try {
       const credentials = {
         email,
@@ -19,12 +33,12 @@ export const AuthProvider = ({ children }) => {
       if (data?.token) {
         await localStorage.setItem('@SCDAuth:token', data.token);
         setToken(data.token);
-        return data.token;
+        return data;
       }
 
-      return 'Usuário inválido';
+      return { message: 'Usuário não encontrado!' };
     } catch (e) {
-      return 'Erro';
+      return { erro: 'Erro' };
     }
   }
 
