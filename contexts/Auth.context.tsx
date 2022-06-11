@@ -32,6 +32,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     loadStoragedData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function signIn(
