@@ -1,5 +1,6 @@
 import useRequest from 'hooks/useRequest';
-import { createContext, useState } from 'react';
+import { useRouter } from 'next/router';
+import { createContext, useEffect, useState } from 'react';
 
 type SignInResponseType = {
   message?: string;
@@ -15,8 +16,23 @@ type AuthContextType = {
 export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState('');
+  const router = useRouter();
   const { sendPost } = useRequest();
+
+  useEffect(() => {
+    async function loadStoragedData() {
+      const storagedToken = await localStorage.getItem('@SCDAuth:token');
+
+      if (storagedToken) {
+        setToken(storagedToken);
+      } else {
+        router.push('/');
+      }
+    }
+
+    loadStoragedData();
+  }, []);
 
   async function signIn(
     email: string,

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from 'hooks/useAuth';
 import { useRouter } from 'next/router';
-import styles from './FormLogin.module.css';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
