@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
 
       return { message: 'Usuário não encontrado!' };
     } catch (e) {
-      return { erro: 'Erro' };
+      return { erro: 'Erro no servidor!' };
     }
   }
 
