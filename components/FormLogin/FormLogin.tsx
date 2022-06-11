@@ -12,12 +12,13 @@ const FormLogin = () => {
 
   async function login(event) {
     event.preventDefault();
-    setIsLoading(true);
-
+    
     if (!email || !password) {
       return alert('Preencha todos os campos!');
     }
-
+    
+    setIsLoading(true);
+    
     const response = await signIn(email, password);
 
     if (response?.message === 'Usuário não encontrado!') {
