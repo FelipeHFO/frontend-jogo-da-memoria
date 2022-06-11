@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        blue: '#4D86F0',
+        'light-blue': '#67CEF5',
+      },
       animation: {
         fadeIn: 'fadeIn 2s ease',
       },

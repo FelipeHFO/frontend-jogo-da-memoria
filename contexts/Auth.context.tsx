@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     loadStoragedData();
-  }, []);
+  }, [router]);
 
   async function signIn(
     email: string,
