@@ -1,31 +1,16 @@
 import Link from 'next/link';
 import styles from './index.module.css';
+import LinkGame from 'components/LinkGame/LinkGame';
 
 const Games = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Games</h1>
       <div className="flex justify-around items-center flex-wrap w-full p-20">
-        <Link href="/games/jogo-da-memoria">
-          <div className="flex justify-center items-center w-96 h-96 bg-dark-blue hover:bg-blue-700 hover:cursor-pointer hover:select-none rounded-2xl m-5 shadow-xl">
-            <h1 className="text-3xl text-center">Jogo da Memória</h1>
-          </div>
-        </Link>
-        <Link href="/">
-          <div className="flex justify-center items-center w-96 h-96 bg-dark-blue hover:bg-blue-700 hover:cursor-pointer hover:select-none rounded-2xl m-5 shadow-xl">
-            <h1 className="text-3xl text-center">Jogo da ...?</h1>
-          </div>
-        </Link>
-        <Link href="/">
-          <div className="flex justify-center items-center w-96 h-96 bg-dark-blue hover:bg-blue-700 hover:cursor-pointer hover:select-none rounded-2xl m-5 shadow-xl">
-            <h1 className="text-3xl text-center">Jogo da ...?</h1>
-          </div>
-        </Link>
-        <Link href="/">
-          <div className="flex justify-center items-center w-96 h-96 bg-dark-blue hover:bg-blue-700 hover:cursor-pointer hover:select-none rounded-2xl m-5 shadow-xl">
-            <h1 className="text-3xl text-center">Jogo da ...?</h1>
-          </div>
-        </Link>
+        <LinkGame link="/games/jogo-da-memoria" title="Jogo da Memória" />
+        <LinkGame link="" title="Jogo da ..." />
+        <LinkGame link="" title="Jogo da ..." />
+        <LinkGame link="" title="Jogo da ..." />
       </div>
     </div>
   );
