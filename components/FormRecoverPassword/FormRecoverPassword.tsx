@@ -19,7 +19,12 @@ const FormRecoverPassword = () => {
   return (
     <form
       onSubmit={sendEmail}
-      className="flex flex-col justify-center items-center w-96 h-96 bg-gradient-to-t from-cyan-400 to-blue-700 rounded-2xl"
+      className="
+        flex flex-col justify-center items-center h-96 bg-gradient-to-t from-cyan-400 to-blue-700 rounded-2xl
+        lg:w-96
+        md:w-80
+        sm:w-80
+      "
     >
       <h1 className="text-2xl text-white font-bold p-2">Recuperar senha</h1>
       <input
