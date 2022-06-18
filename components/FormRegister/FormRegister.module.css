@@ -1,0 +1,76 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 500px;
+  background-image: linear-gradient(to top, #22d3ee, #1d4ed8);
+  border-radius: 25px;
+  margin: 50px 0;
+}
+
+.formTitle{
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.input{
+  width: 75%;
+  height: 40px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  margin-bottom: 20px;
+  padding-left: 10px;
+
+  outline: none;
+}
+
+.input::placeholder{
+  color: white;
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #1d4ed8;
+  border: none;
+  margin: 20px;
+}
+
+.spin{
+  width: 16px;
+  height: 16px;
+  border-bottom: 2px solid white;
+  border-radius: 100%;
+  margin: 5px;
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.link{
+  color: black;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}

@@ -3,7 +3,7 @@ import styles from './index.module.css';
 
 const Games = () => {
   return (
-    <div className="w-full min-h-screen max-h-full bg-light-blue">
+    <div className={styles.container}>
       <h1 className={styles.title}>Games</h1>
       <div className="flex justify-around items-center flex-wrap w-full p-20">
         <Link href="/games/jogo-da-memoria">

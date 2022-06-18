@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Dispatch, SetStateAction } from 'react';
+import styles from './CustomInput.module.css';
 
 type CustomInputProps = {
   type: string;
@@ -21,23 +22,19 @@ export default function CustomInput({
   setVisible,
 }: CustomInputProps) {
   return (
-    <div className="flex justify-between w-3/4 m-5">
+    <div className={styles.inputContainer}>
       <input
         type={visible ? 'text' : type}
         placeholder={placeholder}
         autoComplete="new-password"
-        className={
-          alertPassword
-            ? 'w-4/5 h-10 m-5 pl-2 border-2 border-red-500 outline-none'
-            : 'w-4/5 h-10 bg-transparent text-white border-b pl-2 outline-none placeholder:text-white'
-        }
+        className={alertPassword ? styles.inputAlert : styles.input}
         onChange={(e) => setValue(e.target.value)}
         value={value}
       />
       {visible ? (
         <button
           type="button"
-          className="w-1/5"
+          className={styles.btnShowPassword}
           onClick={() => setVisible(!visible)}
         >
           <Image
@@ -50,7 +47,7 @@ export default function CustomInput({
       ) : (
         <button
           type="button"
-          className="w-1/5"
+          className={styles.btnShowPassword}
           onClick={() => setVisible(!visible)}
         >
           <Image
