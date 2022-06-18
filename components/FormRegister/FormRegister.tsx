@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import useRequest from 'hooks/useRequest';
 import CustomInput from 'components/CustomInput/CustomInput';
+import styles from './FormRegister.module.css';
 
 const FormRegister = () => {
   const [username, setUsername] = useState('');
@@ -46,16 +47,13 @@ const FormRegister = () => {
   }
 
   return (
-    <form
-      onSubmit={createAccount}
-      className="flex flex-col justify-center items-center w-96 h-auto bg-gradient-to-t from-cyan-400 to-blue-700 rounded-2xl py-10"
-    >
-      <h1 className="text-2xl text-white font-bold p-2">Cadastro</h1>
+    <form onSubmit={createAccount} className={styles.form}>
+      <h1 className={styles.formTitle}>Cadastro</h1>
       <input
         type="text"
         placeholder="Digite seu nome de usuário"
         autoComplete="new-password"
-        className="w-3/4 h-10 bg-transparent text-white border-b m-5 pl-2 outline-none placeholder:text-white"
+        className={styles.input}
         onChange={(e) => setUsername(e.target.value)}
         value={username}
       />
@@ -64,7 +62,7 @@ const FormRegister = () => {
         type="email"
         placeholder="Digite seu email"
         autoComplete="new-password"
-        className="w-3/4 h-10 bg-transparent text-white border-b m-5 pl-2 outline-none placeholder:text-white"
+        className={styles.input}
         onChange={(e) => setEmail(e.target.value)}
         value={email}
       />
@@ -88,10 +86,7 @@ const FormRegister = () => {
         setVisible={setVisibleConfirmPassword}
       />
 
-      <button
-        type="submit"
-        className="w-3/4 h-10 text-lg font-bold text-white bg-blue-700 m-5 hover:bg-blue-900 transition-all duration-300"
-      >
+      <button type="submit" className={styles.button}>
         Cadastrar
       </button>
     </form>

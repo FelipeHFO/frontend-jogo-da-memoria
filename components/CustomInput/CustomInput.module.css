@@ -1,0 +1,39 @@
+.inputContainer{
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  margin: 20px;
+}
+
+.input{
+  width: 80%;
+  height: 40px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+}
+
+.input::placeholder{
+  color: white;
+}
+
+.inputAlert{
+  width: 80%;
+  height: 40px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 2px solid red;
+  outline: none;
+}
+
+.btnShowPassword{
+  width: 20%;
+  background-color: transparent;
+  border: none;
+  filter: invert(1);
+  cursor: pointer;
+  outline: none;
+}
