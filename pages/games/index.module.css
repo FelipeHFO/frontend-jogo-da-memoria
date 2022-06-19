@@ -16,3 +16,12 @@
   margin: 0;
   padding-top: 50px;
 }
+
+.linkGamesContainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 50px;
+}
