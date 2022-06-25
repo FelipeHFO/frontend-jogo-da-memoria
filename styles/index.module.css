@@ -18,17 +18,40 @@
   color: #1d4ed8;
   text-shadow: 1px 1px white;
   margin: 25px;
+
+  transition: all 1s ease;
 }
 
-@media (max-width: 640px) {
+/* EXTRA SMALL SCREEN */
+@media (min-width: 0px) AND (max-width: 480px) {
   .titleForm{
     font-size: 2.5rem;
     text-align: center;
+    color: red;
   }
 }
 
-@media (max-width: 1000px) {
+/* SMALL SCREEN */
+@media (min-width: 481px) AND (max-width: 768px) {
+  .titleForm{
+    font-size: 2.5rem;
+    text-align: center;
+    color: yellow;
+  }
+}
+
+/* MEDIUM SCREEN */
+@media (min-width: 769px) AND (max-width: 992px) {
   .titleForm{
     text-align: center;
+    color: pink;
+  }
+}
+
+/* LARGE SCREEN */
+@media (min-width: 993px) AND (max-width: 1200px) {
+  .titleForm{
+    text-align: center;
+    color: green;
   }
 }

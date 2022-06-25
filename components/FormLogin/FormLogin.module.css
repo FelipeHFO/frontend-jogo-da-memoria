@@ -8,6 +8,8 @@
   background-image: linear-gradient(to top, #22d3ee, #1d4ed8);
   border-radius: 25px;
   margin: 50px 0;
+
+  transition: all 1s ease;
 }
 
 .formTitle{
@@ -73,4 +75,55 @@
   color: black;
   text-decoration: underline;
   margin-bottom: 20px;
+}
+
+/* EXTRA SMALL SCREEN */
+@media (min-width: 0px) AND (max-width: 480px) {
+  .form{
+    width: 300px;
+    min-width: 300px;
+  }
+}
+
+/* SMALL SCREEN */
+@media (min-width: 481px) AND (max-width: 768px) {
+  .formTitle{
+    font-size: 28px;
+  }
+}
+
+/* MEDIUM SCREEN */
+@media (min-width: 769px) AND (max-width: 992px) {
+  .form{
+    height: 450px;
+    max-height: 450px;
+  }
+
+  .formTitle{
+    font-size: 32px;
+  }
+}
+
+/* LARGE SCREEN */
+@media (min-width: 993px) AND (max-width: 1200px) {
+  .form{
+    height: 450px;
+    max-height: 450px;
+  }
+
+  .formTitle{
+    font-size: 36px;
+  }
+}
+
+/* EXTRA LARGE SCREEN */
+@media (min-width: 1201px) AND (max-width: 1600px) {
+  .form{
+    height: 450px;
+    max-height: 450px;
+  }
+
+  .formTitle{
+    font-size: 40px;
+  }
 }
