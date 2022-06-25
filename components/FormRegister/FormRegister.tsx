@@ -49,23 +49,28 @@ const FormRegister = () => {
   return (
     <form onSubmit={createAccount} className={styles.form}>
       <h1 className={styles.formTitle}>Cadastro</h1>
-      <input
-        type="text"
-        placeholder="Digite seu nome de usuário"
-        autoComplete="new-password"
-        className={styles.input}
-        onChange={(e) => setUsername(e.target.value)}
-        value={username}
-      />
 
-      <input
-        type="email"
-        placeholder="Digite seu email"
-        autoComplete="new-password"
-        className={styles.input}
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
+      <div className={styles.inputContainer}>
+        <input
+          type="text"
+          placeholder="Digite seu nome de usuário"
+          autoComplete="new-password"
+          className={styles.input}
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
+        />
+      </div>
+
+      <div className={styles.inputContainer}>
+        <input
+          type="email"
+          placeholder="Digite seu email"
+          autoComplete="new-password"
+          className={styles.input}
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+      </div>
 
       <CustomInput
         type="password"

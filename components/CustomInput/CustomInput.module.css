@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 75%;
-  margin: 20px;
+  margin: 5px;
 }
 
 .input{
@@ -12,6 +12,7 @@
   color: white;
   border: none;
   border-bottom: 2px solid white;
+  margin-bottom: 20px;
   outline: none;
 }
 
@@ -31,9 +32,48 @@
 
 .btnShowPassword{
   width: 20%;
+  height: 40px;
   background-color: transparent;
   border: none;
+  border-bottom: 2px solid black;
   filter: invert(1);
   cursor: pointer;
   outline: none;
+}
+
+/* EXTRA SMALL SCREEN */
+@media (min-width: 0px) AND (max-width: 480px) {
+  .button{
+    width: 50%;
+    font-size: 18px;
+  }
+}
+
+/* SMALL SCREEN */
+@media (min-width: 481px) AND (max-width: 768px) {
+
+  .input{
+    font-size: 18px;
+  }
+}
+
+/* MEDIUM SCREEN */
+@media (min-width: 769px) AND (max-width: 992px) {
+  .input{
+    font-size: 18px;
+  }
+}
+
+/* LARGE SCREEN */
+@media (min-width: 993px) AND (max-width: 1200px) {
+  .input{
+    font-size: 18px;
+  }
+}
+
+/* EXTRA LARGE SCREEN */
+@media (min-width: 1201px) AND (max-width: 1600px) {
+  .input{
+    font-size: 18px;
+  }
 }

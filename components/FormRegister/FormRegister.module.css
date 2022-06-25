@@ -17,13 +17,20 @@
   padding-bottom: 10px;
 }
 
-.input{
+.inputContainer{
+  display: flex;
+  justify-content: space-between;
   width: 75%;
+  margin: 5px;
+}
+
+.input{
+  width: 100%;
   height: 40px;
   background-color: transparent;
   color: white;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 2px solid white;
   margin-bottom: 20px;
   padding-left: 10px;
 
@@ -69,8 +76,76 @@
   }
 }
 
-.link{
-  color: black;
-  text-decoration: underline;
-  margin-bottom: 20px;
+/* EXTRA SMALL SCREEN */
+@media (min-width: 0px) AND (max-width: 480px) {
+  .form{
+    width: 300px;
+    min-width: 300px;
+  }
+
+  .button{
+    width: 50%;
+    font-size: 18px;
+  }
+}
+
+/* SMALL SCREEN */
+@media (min-width: 481px) AND (max-width: 768px) {
+  .formTitle{
+    font-size: 28px;
+  }
+
+  .input{
+    font-size: 18px;
+  }
+}
+
+/* MEDIUM SCREEN */
+@media (min-width: 769px) AND (max-width: 992px) {
+  .form{
+    height: 550px;
+    max-height: 550px;
+  }
+
+  .formTitle{
+    font-size: 32px;
+  }
+
+  .input{
+    font-size: 18px;
+  }
+}
+
+/* LARGE SCREEN */
+@media (min-width: 993px) AND (max-width: 1200px) {
+  .form{
+    width: 400px;
+    height: 550px;
+    max-height: 550px;
+  }
+
+  .formTitle{
+    font-size: 36px;
+  }
+
+  .input{
+    font-size: 18px;
+  }
+}
+
+/* EXTRA LARGE SCREEN */
+@media (min-width: 1201px) AND (max-width: 1600px) {
+  .form{
+    width: 400px;
+    height: 550px;
+    max-height: 550px;
+  }
+
+  .formTitle{
+    font-size: 40px;
+  }
+
+  .input{
+    font-size: 18px;
+  }
 }
