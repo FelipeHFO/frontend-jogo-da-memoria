@@ -43,15 +43,10 @@
 
 /* EXTRA SMALL SCREEN */
 @media (min-width: 0px) AND (max-width: 480px) {
-  .button{
-    width: 50%;
-    font-size: 18px;
-  }
 }
 
 /* SMALL SCREEN */
 @media (min-width: 481px) AND (max-width: 768px) {
-
   .input{
     font-size: 18px;
   }
