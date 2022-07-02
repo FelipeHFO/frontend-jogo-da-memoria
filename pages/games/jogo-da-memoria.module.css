@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
 .container{
   display: grid;
   grid-template-areas:
@@ -18,13 +16,6 @@
   border-top: 5px solid black;
   border-right: 5px solid black;
   grid-area: main;
-}
-
-.cards{
-  width: 160px;
-  height: 200px;
-  border: 5px solid black;
-  margin: 20px;
 }
 
 .aside{
