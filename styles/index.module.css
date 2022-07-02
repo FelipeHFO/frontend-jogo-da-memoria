@@ -12,16 +12,6 @@
   background-position: center;
 }
 
-.titleForm {
-  font-family: 'Press Start 2P';
-  font-size: 4rem;
-  color: #1d4ed8;
-  text-shadow: 1px 1px white;
-  margin: 25px;
-
-  transition: all 1s ease;
-}
-
 /* EXTRA SMALL SCREEN */
 @media (min-width: 0px) AND (max-width: 480px) {
   .titleForm{

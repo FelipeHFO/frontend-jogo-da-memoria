@@ -1,6 +1,7 @@
-import Head from 'next/head';
 import FormLogin from '../components/FormLogin/FormLogin';
 import styles from '../styles/index.module.css';
+import Header from 'components/Header/Header';
+import Head from 'next/head';
 
 export default function Home() {
   return (
@@ -9,7 +10,8 @@ export default function Home() {
         <title>Projeto Jogo da Memória</title>
         <meta name="description" content="Projeto Jogo da Memória" />
       </Head>
-      <h1 className={styles.titleForm}>Jogo da Memória</h1>
+
+      <Header title="Jogo da Memória" />
       <FormLogin />
     </div>
   );
