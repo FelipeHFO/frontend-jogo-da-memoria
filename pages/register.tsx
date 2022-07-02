@@ -1,6 +1,7 @@
 import FormRegister from 'components/FormRegister/FormRegister';
-import Head from 'next/head';
 import styles from '../styles/index.module.css';
+import Header from 'components/Header/Header';
+import Head from 'next/head';
 
 const Register = () => (
   <div className={styles.container}>
@@ -8,7 +9,7 @@ const Register = () => (
       <title>Crie sua conta - Projeto Jogo da Memória</title>
       <meta name="description" content="Projeto Jogo da Memória" />
     </Head>
-    <h1 className={styles.titleForm}>Jogo da Memória</h1>
+    <Header title="Jogo da Memória" />
     <FormRegister />
   </div>
 );

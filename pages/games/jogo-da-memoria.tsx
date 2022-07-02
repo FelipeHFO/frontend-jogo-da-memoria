@@ -1,11 +1,10 @@
+import Header from 'components/Header/Header';
 import styles from './jogo-da-memoria.module.css';
 
 const JogoDaMemoria = () => {
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>Jogo da Memória</h1>
-      </header>
+      <Header title="Jogo da Memória" />
 
       <main className={styles.main}>
         <div className={styles.cards} />
