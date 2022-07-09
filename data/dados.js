@@ -1,4 +1,4 @@
-const cards = [
+const initialState = [
   {
     id: 1,
     wasDiscovered: false,
@@ -130,11 +130,4 @@ const cards = [
   // '/assets/card-images/zoe.jpg',
 ];
 
-cards.sort(() => Math.random() - 0.5);
-
-function turnAllCardsDown() {
-  cards.map((card) => (!card.wasDiscovered ? (card.isTurned = false) : null));
-  console.log(cards);
-}
-
-export {cards, turnAllCardsDown};
+export default initialState;
