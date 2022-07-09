@@ -6,18 +6,6 @@
   background-color: #2196F3;
 }
 
-.main{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 75vw;
-  height: 85vh;
-  border-top: 5px solid black;
-  border-right: 5px solid black;
-  grid-area: main;
-}
-
 .aside{
   display: flex;
   flex-direction: column;
