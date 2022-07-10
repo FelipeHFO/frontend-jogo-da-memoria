@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
       if (storagedToken) {
         setToken(storagedToken);
       } else {
-        //router.push('/');
+        router.push('/');
       }
     }
 
