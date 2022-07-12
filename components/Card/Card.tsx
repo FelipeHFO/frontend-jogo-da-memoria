@@ -23,27 +23,31 @@ const Card = ({ id }: CardProps) => {
 
   return (
     <div className={styles.cards}>
-      {selectedCard.isTurned ? (
-        <button type="button" className={styles.front} onClick={handleClick}>
+      <div
+        className={
+          selectedCard.isTurned
+            ? styles.cardInner
+            : [styles.cardInner, styles.isFlipped].join(' ')
+        }
+        onClick={handleClick}
+      >
+        <div className={styles.cardFace}>
           <Image
             src={selectedCard.frontImage}
             alt={selectedCard.altImage}
             width={160}
             height={200}
-            style={{ borderRadius: '10px' }}
           />
-        </button>
-      ) : (
-        <button type="button" className={styles.back} onClick={handleClick}>
+        </div>
+        <div className={[styles.cardFace, styles.cardFaceBack].join(' ')}>
           <Image
             src="/assets/card-images/background.jpg"
             alt="back"
             width={160}
             height={200}
-            style={{ borderRadius: '10px' }}
           />
-        </button>
-      )}
+        </div>
+      </div>
     </div>
   );
 };
