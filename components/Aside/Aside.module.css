@@ -1,0 +1,9 @@
+.aside{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 25vw;
+  height: 85vh;
+  grid-area: aside;
+}

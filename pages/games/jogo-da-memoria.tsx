@@ -2,6 +2,7 @@ import { JogoDaMemoriaProvider } from 'contexts/JogoDaMemoriaContext';
 import styles from './jogo-da-memoria.module.css';
 import Header from 'components/Header/Header';
 import Table from 'components/Table/Table';
+import Aside from 'components/Aside/Aside';
 
 const JogoDaMemoria = () => {
   return (
@@ -11,17 +12,7 @@ const JogoDaMemoria = () => {
 
         <Table />
 
-        <aside className={styles.aside}>
-          <h1>Pontos: </h1>
-          <h1>Tempo: </h1>
-          <h1>Número de Jogadas: </h1>
-          <h1>Erros: </h1>
-
-          <div>
-            <button>Pausar</button>
-            <button>Resetar</button>
-          </div>
-        </aside>
+        <Aside />
       </div>
     </JogoDaMemoriaProvider>
   );

@@ -27,7 +27,7 @@ const Card = ({ id }: CardProps) => {
         className={
           selectedCard.isTurned
             ? styles.cardInner
-            : [styles.cardInner, styles.isFlipped].join(' ')
+            : [styles.cardInner, styles.isNotTurned].join(' ')
         }
         onClick={handleClick}
       >

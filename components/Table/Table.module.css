@@ -5,7 +5,5 @@
     align-items: center;
     width: 75vw;
     height: 85vh;
-    border-top: 5px solid black;
-    border-right: 5px solid black;
     grid-area: main;
   }

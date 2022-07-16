@@ -17,7 +17,7 @@
   transform-style: preserve-3d;
 }
 
-.cardInner.isFlipped{
+.cardInner.isNotTurned{
   transform: rotateY(-180deg);
 }
 

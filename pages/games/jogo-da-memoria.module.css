@@ -8,14 +8,3 @@
   background: -moz-radial-gradient(bottom, #475782, #271865);
   background: radial-gradient(to top, #475782, #271865);
 }
-
-.aside{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  width: 25vw;
-  height: 85vh;
-  border-top: 5px solid black;
-  grid-area: aside;
-}
