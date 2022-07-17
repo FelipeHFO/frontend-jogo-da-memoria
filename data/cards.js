@@ -1,4 +1,4 @@
-const initialState = [
+const initialCardsState = [
   {
     id: 1,
     wasDiscovered: false,
@@ -130,4 +130,4 @@ const initialState = [
   // '/assets/card-images/zoe.jpg',
 ];
 
-export default initialState;
+export default initialCardsState;

@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import initialState from '../data/dados';
+import initialCardsState from '../data/cards';
 
 type CardType = {
   id: number;
@@ -24,16 +24,18 @@ type JogoDaMemoriaType = {
   numberOfPlays?: number;
   setNumberOfPlays?: Dispatch<SetStateAction<number>>;
   numberOfErrors?: number;
-  time?: Date;
+  setNumberOfErrors?: Dispatch<SetStateAction<number>>;
 };
 
 export const JogoDaMemoriaContext = createContext({} as JogoDaMemoriaType);
 
 export const JogoDaMemoriaProvider = ({ children }) => {
-  const [cards, setCards] = useState(initialState);
+  const [cards, setCards] = useState(initialCardsState);
   const [points, setPoints] = useState(0);
   const [numberOfPlays, setNumberOfPlays] = useState(0);
+  const [numberOfErrors, setNumberOfErrors] = useState(0);
 
+  // Função que vira todas cartas para baixo, exceto as encontradas
   function flipAllCardsDown() {
     const cardsAux = cards.slice();
     cardsAux.map((card) =>
@@ -41,6 +43,7 @@ export const JogoDaMemoriaProvider = ({ children }) => {
     );
   }
 
+  // Função que verifica se acertou ou errou a jogada
   function checkAttempt() {
     const cardsAux = cards.slice();
     let selectedCards = [];
@@ -58,16 +61,15 @@ export const JogoDaMemoriaProvider = ({ children }) => {
             );
           });
           setCards(cardsAux);
-          //setPoints(points + 1);
           selectedCards = [];
         } else {
           flipAllCardsDown();
         }
-        //setNumberOfPlays(numberOfPlays + 1);
       }
     });
   }
 
+  // Efeito para contar as pontuações
   useEffect(() => {
     let selectedCards = [];
     cards.map((card) => {
@@ -77,10 +79,13 @@ export const JogoDaMemoriaProvider = ({ children }) => {
         if (selectedCards[0]?.frontImage === selectedCards[1]?.frontImage) {
           setPoints(points + 1);
           selectedCards = [];
+        } else {
+          setNumberOfErrors(numberOfErrors + 1);
         }
         setNumberOfPlays(numberOfPlays + 1);
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards]);
 
   return (
@@ -92,6 +97,8 @@ export const JogoDaMemoriaProvider = ({ children }) => {
         setPoints,
         numberOfPlays,
         setNumberOfPlays,
+        numberOfErrors,
+        setNumberOfErrors,
         checkAttempt,
       }}
     >
