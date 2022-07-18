@@ -1,76 +1,51 @@
-import { useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from 'react';
 
 const Stopwatch = () => {
-  const [time, setTime] = useState({ ms: 0, s: 0, m: 0, h: 0 });
-  const [interv, setInterv] = useState<any>();
-  const [status, setStatus] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
-  const start = () => {
-    run();
-    setStatus(1);
-    setInterv(setInterval(run, 10));
-  };
+  let timer;
 
-  let updatedMs = time.ms;
-  let updatedS = time.s;
-  let updatedM = time.m;
-  let updatedH = time.h;
+  useEffect(() => {
+    timer = setInterval(() => {
+      setSeconds(seconds + 1);
 
-  const run = () => {
-    if (updatedM === 60) {
-      updatedH++;
-      updatedM = 0;
-    }
-    if (updatedS === 60) {
-      updatedM++;
-      updatedS = 0;
-    }
-    if (updatedMs === 100) {
-      updatedS++;
-      updatedMs = 0;
-    }
-    updatedMs++;
-    return setTime({ ms: updatedMs, s: updatedS, m: updatedM, h: updatedH });
-  };
+      if (seconds === 59) {
+        setMinutes(minutes + 1);
+        setSeconds(0);
+      }
 
-  const stop = () => {
-    clearInterval(interv);
-    setStatus(2);
-  };
+      if (minutes === 59) {
+        setHours(hours + 1);
+        setMinutes(0);
+      }
+    }, 1000);
 
-  const reset = () => {
-    clearInterval(interv);
-    setStatus(0);
-    setTime({ ms: 0, s: 0, m: 0, h: 0 });
-  };
+    return () => clearInterval(timer);
+  }, [hours, minutes, seconds]);
 
-  const resume = () => start();
+  function restart() {
+    window.location.reload();
+  }
 
   return (
     <div>
       <div>
-        <span>{time.h >= 10 ? time.h : '0' + time.h}</span>&nbsp;:&nbsp;
-        <span>{time.m >= 10 ? time.m : '0' + time.m}</span>&nbsp;:&nbsp;
-        <span>{time.s >= 10 ? time.s : '0' + time.s}</span>
+        <h1>Tempo</h1>
+        <h1>
+          {hours < 10 ? `0${hours}` : hours}:
+          {minutes < 10 ? `0${minutes}` : minutes}:
+          {seconds < 10 ? `0${seconds}` : seconds}
+        </h1>
       </div>
 
-      <div>
-        {status === 0 ? <button onClick={start}>Start</button> : ''}
-
-        {status === 1 ? (
-          <div>
-            <button onClick={stop}>Stop</button>
-            <button onClick={reset}>Reset</button>
-          </div>
-        ) : null}
-
-        {status === 2 ? (
-          <div>
-            <button onClick={resume}>Resume</button>
-            <button onClick={reset}>Reset</button>
-          </div>
-        ) : null}
-      </div>
+      <section>
+        <button type="button" onClick={restart}>
+          Recomeçar
+        </button>
+      </section>
     </div>
   );
 };
