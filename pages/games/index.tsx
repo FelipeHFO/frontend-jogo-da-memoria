@@ -6,7 +6,7 @@ import Header from 'components/Header/Header';
 const Games = () => {
   return (
     <div className={styles.container}>
-      <Header title="Games" />
+      <Header text="Games" page="games" />
       <div className={styles.linkGamesContainer}>
         <LinkGame link="/games/jogo-da-memoria" title="Jogo da Memória" />
         <LinkGame link="" title="Jogo da ..." />

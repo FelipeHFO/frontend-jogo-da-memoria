@@ -10,7 +10,7 @@ export default function ForgotPassword() {
         <title>Projeto Jogo da Memória</title>
         <meta name="description" content="Projeto Jogo da Memória" />
       </Head>
-      <Header title="Jogo da Memória" />
+      <Header text="Jogo da Memória" page="forgot-password" />
       <FormRecoverPassword />
     </div>
   );

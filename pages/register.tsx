@@ -9,7 +9,7 @@ const Register = () => (
       <title>Crie sua conta - Projeto Jogo da Memória</title>
       <meta name="description" content="Projeto Jogo da Memória" />
     </Head>
-    <Header title="Jogo da Memória" />
+    <Header text="Jogo da Memória" page="register" />
     <FormRegister />
   </div>
 );

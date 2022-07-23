@@ -11,7 +11,7 @@ export default function Home() {
         <meta name="description" content="Projeto Jogo da Memória" />
       </Head>
 
-      <Header title="Jogo da Memória" />
+      <Header text="Jogo da Memória" page="home" />
       <FormLogin />
     </div>
   );

@@ -9,7 +9,7 @@ const JogoDaMemoria = () => {
   return (
     <JogoDaMemoriaProvider>
       <div className={styles.container}>
-        <Header title="Jogo da Memória" />
+        <Header text="Jogo da Memória" page="jogo-da-memoria" />
 
         <Table />
 
