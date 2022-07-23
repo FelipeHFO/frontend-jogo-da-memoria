@@ -1,7 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useJogoDaMemoria } from 'hooks/useJogoDaMemoria';
 import { useEffect, useState } from 'react';
 
 const Stopwatch = () => {
+  const { cards, setTime } = useJogoDaMemoria();
+  const [stop, setStop] = useState(false);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -23,11 +26,31 @@ const Stopwatch = () => {
       }
     }, 1000);
 
+    stop ? clearInterval(timer) : null;
+
     return () => clearInterval(timer);
   }, [hours, minutes, seconds]);
 
+  useEffect(() => {
+    let remainingCards = cards.filter((card) => card.wasDiscovered != true);
+
+    if (remainingCards.length === 0) {
+      setStop(true);
+      setTime(getTime());
+      clearInterval(timer);
+    }
+  }, [cards]);
+
   function restart() {
     window.location.reload();
+  }
+
+  function getTime() {
+    return `
+      ${hours < 10 ? `0${hours}` : hours}:${
+      minutes < 10 ? `0${minutes}` : minutes
+    }:${seconds < 10 ? `0${seconds}` : seconds}
+    `;
   }
 
   return (

@@ -18,6 +18,8 @@ type CardType = {
 type JogoDaMemoriaType = {
   cards: CardType[];
   setCards: Dispatch<SetStateAction<CardType[]>>;
+  time: string;
+  setTime: Dispatch<SetStateAction<string>>;
   checkAttempt: () => void;
   points?: number;
   setPoints?: Dispatch<SetStateAction<number>>;
@@ -34,6 +36,7 @@ export const JogoDaMemoriaProvider = ({ children }) => {
   const [points, setPoints] = useState(0);
   const [numberOfPlays, setNumberOfPlays] = useState(0);
   const [numberOfErrors, setNumberOfErrors] = useState(0);
+  const [time, setTime] = useState('');
 
   // Função que vira todas cartas para baixo, exceto as encontradas
   function flipAllCardsDown() {
@@ -72,6 +75,7 @@ export const JogoDaMemoriaProvider = ({ children }) => {
   // Efeito para contar as pontuações
   useEffect(() => {
     let selectedCards = [];
+    checkAttempt();
     cards.map((card) => {
       if (card.isTurned && card.wasDiscovered != true) selectedCards.push(card);
 
@@ -85,6 +89,7 @@ export const JogoDaMemoriaProvider = ({ children }) => {
         setNumberOfPlays(numberOfPlays + 1);
       }
     });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards]);
 
@@ -93,6 +98,8 @@ export const JogoDaMemoriaProvider = ({ children }) => {
       value={{
         cards,
         setCards,
+        time,
+        setTime,
         points,
         setPoints,
         numberOfPlays,
