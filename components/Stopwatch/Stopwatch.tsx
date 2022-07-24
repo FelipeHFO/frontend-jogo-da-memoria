@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useJogoDaMemoria } from 'hooks/useJogoDaMemoria';
 import { useEffect, useState } from 'react';
+import styles from './Stopwatch.module.css';
 
 const Stopwatch = () => {
   const { cards, setTime } = useJogoDaMemoria();
@@ -54,7 +55,7 @@ const Stopwatch = () => {
   }
 
   return (
-    <div>
+    <div className={styles.stopwatchContainer}>
       <div>
         <h1>Tempo</h1>
         <h1>
