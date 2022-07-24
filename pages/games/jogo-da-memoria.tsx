@@ -13,7 +13,7 @@ const JogoDaMemoria = () => {
 
         <Table />
 
-        {/* <Scores /> */}
+        <Scores />
         <Stopwatch />
       </div>
     </JogoDaMemoriaProvider>

@@ -20,13 +20,14 @@ type JogoDaMemoriaType = {
   setCards: Dispatch<SetStateAction<CardType[]>>;
   time: string;
   setTime: Dispatch<SetStateAction<string>>;
-  checkAttempt: () => void;
   points?: number;
   setPoints?: Dispatch<SetStateAction<number>>;
   numberOfPlays?: number;
   setNumberOfPlays?: Dispatch<SetStateAction<number>>;
   numberOfErrors?: number;
   setNumberOfErrors?: Dispatch<SetStateAction<number>>;
+  isEndGame?: boolean;
+  checkAttempt: () => void;
 };
 
 export const JogoDaMemoriaContext = createContext({} as JogoDaMemoriaType);
@@ -36,6 +37,7 @@ export const JogoDaMemoriaProvider = ({ children }) => {
   const [points, setPoints] = useState(0);
   const [numberOfPlays, setNumberOfPlays] = useState(0);
   const [numberOfErrors, setNumberOfErrors] = useState(0);
+  const [isEndGame, setIsEndGame] = useState(false);
   const [time, setTime] = useState('');
 
   // Função que vira todas cartas para baixo, exceto as encontradas
@@ -46,8 +48,16 @@ export const JogoDaMemoriaProvider = ({ children }) => {
     );
   }
 
+  // Função que verifica se o jogo acabou
+  function checkGame() {
+    let remaingCards = [];
+    remaingCards = cards.filter((card) => card.wasDiscovered != true);
+
+    remaingCards.length === 0 ? setIsEndGame(true) : null;
+  }
+
   // Função que verifica se acertou ou errou a jogada
-  function checkAttempt() {
+  function checkAttempt(intervalCheckAttempt = null) {
     const cardsAux = cards.slice();
     let selectedCards = [];
 
@@ -70,12 +80,14 @@ export const JogoDaMemoriaProvider = ({ children }) => {
         }
       }
     });
+
+    intervalCheckAttempt ? clearInterval(intervalCheckAttempt) : null;
   }
 
   // Efeito para contar as pontuações
   useEffect(() => {
     let selectedCards = [];
-    checkAttempt();
+
     cards.map((card) => {
       if (card.isTurned && card.wasDiscovered != true) selectedCards.push(card);
 
@@ -89,6 +101,8 @@ export const JogoDaMemoriaProvider = ({ children }) => {
         setNumberOfPlays(numberOfPlays + 1);
       }
     });
+
+    checkGame();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards]);
@@ -106,6 +120,7 @@ export const JogoDaMemoriaProvider = ({ children }) => {
         setNumberOfPlays,
         numberOfErrors,
         setNumberOfErrors,
+        isEndGame,
         checkAttempt,
       }}
     >

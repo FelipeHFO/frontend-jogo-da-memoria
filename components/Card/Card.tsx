@@ -13,12 +13,27 @@ const Card = ({ id }: CardProps) => {
   let selectedCard = cards.find((card) => card.id === selectedCardId);
 
   function handleClick() {
-    checkAttempt();
     const cardsAux = cards.slice();
     cardsAux.map((card) =>
       card.id === selectedCardId ? (card.isTurned = !card.isTurned) : null,
     );
     setCards(cardsAux);
+
+    /**
+     * Explicação:
+     * 1 - A função checkAttempt estava sendo chamada no início dessa função
+     * handleClick, porque se deixassemos ela no final, como seria o correto
+     * pois é somente depois de mudar o estado que vamos verificar se acertou ou
+     * não, o efeito de virar a carta parecia errado.
+     * Ao clicar em uma carta ela virava normal, porém ao clicar na segunda e
+     * ela não fosse a correta, o efeito de virar e a checagem de ela não ser
+     * igual era tão rápido que não parecia correto, porque nossa função
+     * checkAttempt verifica e caso não seja, ela vira as cartas de volta.
+     * 2 - Dessa forma, pensei que um setInterval funcionaria e no caso
+     * funcionou, depois de um segundo o estado da segunda carta alterado, ai
+     * ele vai verificar mas o efeito de virar a carta já ocorreu.
+     */
+    setInterval(() => checkAttempt(), 500);
   }
 
   return (

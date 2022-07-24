@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './Stopwatch.module.css';
 
 const Stopwatch = () => {
-  const { cards, setTime } = useJogoDaMemoria();
+  const { isEndGame, setTime } = useJogoDaMemoria();
   const [stop, setStop] = useState(false);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -33,14 +33,12 @@ const Stopwatch = () => {
   }, [hours, minutes, seconds]);
 
   useEffect(() => {
-    let remainingCards = cards.filter((card) => card.wasDiscovered != true);
-
-    if (remainingCards.length === 0) {
+    if (isEndGame) {
       setStop(true);
       setTime(getTime());
       clearInterval(timer);
     }
-  }, [cards]);
+  }, [isEndGame]);
 
   function restart() {
     window.location.reload();
