@@ -38,7 +38,7 @@ export const JogoDaMemoriaProvider = ({ children }) => {
   const [numberOfPlays, setNumberOfPlays] = useState(0);
   const [numberOfErrors, setNumberOfErrors] = useState(0);
   const [isEndGame, setIsEndGame] = useState(false);
-  const [time, setTime] = useState('');
+  const [time, setTime] = useState('00:00:00');
 
   // Função que vira todas cartas para baixo, exceto as encontradas
   function flipAllCardsDown() {

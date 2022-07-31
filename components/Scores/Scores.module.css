@@ -1,9 +1,44 @@
-.scores{
+.container {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.scores{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
   width: 25vw;
-  height: 85vh;
-  grid-area: aside;
+  height: 50vh;
+  background-color: white;
+  padding: 50px;
+}
+
+.containerButtons{
+  display: flex;
+  width: 100%;
+}
+
+.button{
+  width: 75%;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #1d4ed8;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.5s ease;
+}
+
+.button:hover {
+  background-color: #10245b;
 }
