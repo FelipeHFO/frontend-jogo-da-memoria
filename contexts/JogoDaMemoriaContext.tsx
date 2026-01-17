@@ -50,12 +50,12 @@ export const JogoDaMemoriaProvider = ({ children }) => {
   }
 
   // Função que verifica se o jogo acabou
-  const checkGame = useCallback(() => {
+  function checkGame() {
     let remaingCards = [];
     remaingCards = cards.filter((card) => card.wasDiscovered != true);
 
     remaingCards.length === 0 ? setIsEndGame(true) : null;
-  }, [cards]);
+  }
 
   // Função que verifica se acertou ou errou a jogada
   function checkAttempt(intervalCheckAttempt = null) {
@@ -94,17 +94,17 @@ export const JogoDaMemoriaProvider = ({ children }) => {
 
       if (selectedCards.length === 2) {
         if (selectedCards[0]?.frontImage === selectedCards[1]?.frontImage) {
-          setPoints(prev => prev + 1);
+          setPoints(points + 1);
           selectedCards = [];
         } else {
-          setNumberOfErrors(prev => prev + 1);
+          setNumberOfErrors(numberOfErrors + 1);
         }
-        setNumberOfPlays(prev => prev + 1);
+        setNumberOfPlays(numberOfPlays + 1);
       }
     });
 
     checkGame();
-  }, [cards, checkGame]);
+  }, [cards]);
 
   return (
     <JogoDaMemoriaContext.Provider
