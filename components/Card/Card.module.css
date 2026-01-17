@@ -1,8 +1,22 @@
-.cards{
-  width: 160px;
-  height: 200px;
-  margin: 20px;
+.cards {
+  width: 130px;
+  height: 150px;
+  margin: 0;
   perspective: 600px;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    width: 100px;
+    height: 125px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    width: 80px;
+    height: 100px;
+  }
 }
 
 .cardInner{

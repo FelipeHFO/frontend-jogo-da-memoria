@@ -1,14 +1,36 @@
 import { useJogoDaMemoria } from 'hooks/useJogoDaMemoria';
-import { useRouter } from 'next/router';
+import { useEffect, useRef } from 'react';
 import styles from './Scores.module.css';
 
 const Scores = () => {
   const { time, points, numberOfPlays, numberOfErrors } = useJogoDaMemoria();
-  const router = useRouter();
+  const hasSaved = useRef(false);
+
+  useEffect(() => {
+    if (points > 0 && !hasSaved.current) {
+      const stored = localStorage.getItem('highScores');
+      let scores = stored ? JSON.parse(stored) : [];
+
+      scores.push({
+        points,
+        time,
+        plays: numberOfPlays,
+        errors: numberOfErrors,
+      });
+
+      if (scores.length >= 100) {
+        scores = [];
+      }
+
+      localStorage.setItem('highScores', JSON.stringify(scores));
+      hasSaved.current = true;
+    }
+  }, [points, time, numberOfPlays, numberOfErrors]);
 
   return (
     <div className={styles.container}>
       <div className={styles.scores}>
+        <h1>🎉 Fim do Jogo! 🎉</h1>
         <h1>Tempo: {time}</h1>
         <h1>Pontos: {points}</h1>
         <h1>Número de Jogadas: {numberOfPlays}</h1>
@@ -20,16 +42,7 @@ const Scores = () => {
             onClick={() => window.location.reload()}
             className={styles.button}
           >
-            Jogar novamente
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              router.push('/games');
-            }}
-            className={styles.button}
-          >
-            Sair
+            Jogar Novamente
           </button>
         </div>
       </div>

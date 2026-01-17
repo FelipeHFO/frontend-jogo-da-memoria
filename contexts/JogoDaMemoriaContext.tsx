@@ -4,6 +4,7 @@ import {
   SetStateAction,
   useEffect,
   useState,
+  useCallback,
 } from 'react';
 import initialCardsState from '../data/cards';
 
@@ -49,12 +50,12 @@ export const JogoDaMemoriaProvider = ({ children }) => {
   }
 
   // Função que verifica se o jogo acabou
-  function checkGame() {
+  const checkGame = useCallback(() => {
     let remaingCards = [];
     remaingCards = cards.filter((card) => card.wasDiscovered != true);
 
     remaingCards.length === 0 ? setIsEndGame(true) : null;
-  }
+  }, [cards]);
 
   // Função que verifica se acertou ou errou a jogada
   function checkAttempt(intervalCheckAttempt = null) {
@@ -93,19 +94,17 @@ export const JogoDaMemoriaProvider = ({ children }) => {
 
       if (selectedCards.length === 2) {
         if (selectedCards[0]?.frontImage === selectedCards[1]?.frontImage) {
-          setPoints(points + 1);
+          setPoints(prev => prev + 1);
           selectedCards = [];
         } else {
-          setNumberOfErrors(numberOfErrors + 1);
+          setNumberOfErrors(prev => prev + 1);
         }
-        setNumberOfPlays(numberOfPlays + 1);
+        setNumberOfPlays(prev => prev + 1);
       }
     });
 
     checkGame();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cards]);
+  }, [cards, checkGame]);
 
   return (
     <JogoDaMemoriaContext.Provider

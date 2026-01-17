@@ -10,6 +10,7 @@ const Table = () => {
     const cardsAux = cards.slice();
     cardsAux.sort(() => Math.random() - 0.5);
     setCards(cardsAux);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -1,9 +1,25 @@
-.main{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 75vw;
-    height: 85vh;
-    grid-area: main;
+.main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 2rem;
+  justify-items: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.5rem;
+    padding: 1rem;
   }
+}
+
+@media (max-width: 480px) {
+  .main {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.5rem;
+  }
+}

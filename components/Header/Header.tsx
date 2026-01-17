@@ -7,11 +7,9 @@ export interface HeaderPropsInterface {
 
 const Header = ({ text, page }: HeaderPropsInterface) => {
   function checkClasses() {
-    if (page === 'home' || page === 'forgot-password' || page === 'register')
-      return [styles.title, styles.titleLg].join(' ');
-    if (page === 'games' || page === 'jogo-da-memoria')
+    if (page === 'jogo-da-memoria') {
       return [styles.title, styles.titleMd].join(' ');
-
+    }
     return styles.title;
   }
 

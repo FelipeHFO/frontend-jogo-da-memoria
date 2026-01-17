@@ -1,6 +1,6 @@
 import { useJogoDaMemoria } from 'hooks/useJogoDaMemoria';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './Card.module.css';
 
 type CardProps = {
@@ -50,16 +50,16 @@ const Card = ({ id }: CardProps) => {
           <Image
             src={selectedCard.frontImage}
             alt={selectedCard.altImage}
-            width={160}
-            height={200}
+            width={130}
+            height={150}
           />
         </div>
         <div className={[styles.cardFace, styles.cardFaceBack].join(' ')}>
           <Image
             src="/assets/card-images/background.jpg"
             alt="back"
-            width={160}
-            height={200}
+            width={130}
+            height={150}
           />
         </div>
       </div>
